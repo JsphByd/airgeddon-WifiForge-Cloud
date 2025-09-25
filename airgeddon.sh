@@ -17667,15 +17667,10 @@ function check_inside_tmux() {
 function transfer_to_tmux() {
 
 	debug_print
-
-	if ! check_inside_tmux; then
-		create_tmux_session "${session_name}" "false"
-	else
-		local active_session
-		active_session=$(tmux display-message -p '#S')
-		if [ "${active_session}" != "${session_name}" ]; then
-			tmux_error=1
-		fi
+	local active_session
+	active_session=$(tmux display-message -p '#S')
+	if [ "${active_session}" != "${session_name}" ]; then
+		tmux_error=1
 	fi
 }
 
