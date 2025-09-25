@@ -44,4 +44,4 @@ AIRGEDDON_DEVELOPMENT_MODE=false
 AIRGEDDON_DEBUG_MODE=false
 
 #Available values: xterm, tmux - Define the needed tool to be used for windows handling - Default value xterm
-AIRGEDDON_WINDOWS_HANDLING=xterm
+AIRGEDDON_WINDOWS_HANDLING=tmux
