@@ -398,7 +398,7 @@ hashcat_charsets=("?l" "?u" "?d" "?s")
 
 #Tmux vars
 airgeddon_uid=""
-session_name="airgeddon"
+session_name="WIFIFORGE-BETTERCAP"
 tmux_main_window="airgeddon-Main"
 no_hardcore_exit=0
 
