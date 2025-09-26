@@ -18435,7 +18435,7 @@ function echo_white() {
 }
 
 function get_attacker_pid() {
-	attacker_pid = $(ps aux | grep -G 'mininet:Attacker' | grep -v 'grep' | grep -v 'ap' | awk '{print $2}')
+	attacker_pid=$(ps aux | grep -G 'mininet:Attacker' | grep -v 'grep' | grep -v 'ap' | awk '{print $2}')
 	echo "$attacker_pid"
 }
 
