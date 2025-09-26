@@ -18433,6 +18433,11 @@ function echo_white() {
 	last_echo "${1}" "${white_color}"
 }
 
+function get_attacker_pid() {
+	attacker_pid = $(grep -G 'mininet:Attacker' | grep -v 'grep' | grep -v 'ap' | awk '{print $2}')
+	return attacker_pid
+}
+
 #Script starting point
 function main() {
 
