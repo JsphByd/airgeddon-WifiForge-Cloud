@@ -18483,7 +18483,7 @@ function main() {
 		echo
 		language_strings "${language}" 621 "yellow"
 		language_strings "${language}" 115 "read"
-		create_tmux_session "${session_name}" "false"
+		#create_tmux_session "${session_name}" "false"
 
 		exit_code=1
 		exit ${exit_code}
