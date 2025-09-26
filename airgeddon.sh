@@ -17574,8 +17574,6 @@ function initialize_tmux() {
 		airgeddon_uid="${BASHPID}"
 	fi
 
-	session_name="TEST"
-
 	if [ "${AIRGEDDON_WINDOWS_HANDLING}" = "tmux" ]; then
 		if hash tmux 2> /dev/null; then
 			transfer_to_tmux
