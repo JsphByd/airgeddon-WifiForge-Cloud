@@ -14439,7 +14439,7 @@ function explore_for_targets_option() {
 	fi
 
 	recalculate_windows_sizes
-	attacker_id = get_attacker_pid
+	attacker_id=$(get_attacker_pid)
 	manage_output "+j -bg \"#000000\" -fg \"#FFFFFF\" -geometry ${g1_topright_window} -T \"Exploring for targets\"" "nsenter -t ${attacker_id} -m -u -i -n -p bash -c 'airodump-ng -w ${tmpdir}nws${cypher_cmd}${interface} --band ${airodump_band_modifier}' C-m" "Exploring for targets" "active"
 	wait_for_process "airodump-ng -w ${tmpdir}nws${cypher_cmd}${interface} --band ${airodump_band_modifier}" "Exploring for targets"
 	targetline=$(awk '/(^Station[s]?|^Client[es]?)/{print NR}' "${tmpdir}nws-01.csv" 2> /dev/null)
@@ -18435,8 +18435,8 @@ function echo_white() {
 }
 
 function get_attacker_pid() {
-	attacker_pid = $(grep -G 'mininet:Attacker' | grep -v 'grep' | grep -v 'ap' | awk '{print $2}')
-	return attacker_pid
+	attacker_pid = $(ps aux | grep -G 'mininet:Attacker' | grep -v 'grep' | grep -v 'ap' | awk '{print $2}')
+	echo "$attacker_pid"
 }
 
 #Script starting point
