@@ -17610,10 +17610,8 @@ function create_tmux_session() {
 	session_name="${1}"
 
 	if [ "${2}" = "true" ]; then
-		tmux new-session -d -s "${1}"
 		start_airgeddon_from_tmux "normal"
 	else
-		tmux new-session -d -s "${1}"
 		start_airgeddon_from_tmux "nested"
 	fi
 }
@@ -17657,9 +17655,6 @@ function check_inside_tmux() {
 	local parent_window
 	parent_pid=$(ps -o ppid= ${PPID} 2> /dev/null | tr -d ' ')
 	parent_window="$(ps --no-headers -p "${parent_pid}" -o comm= 2> /dev/null)"
-	if [[ "${parent_window}" =~ tmux ]]; then
-		return 0
-	fi
 	return 1
 }
 
@@ -17669,9 +17664,6 @@ function transfer_to_tmux() {
 	debug_print
 	local active_session
 	active_session=$(tmux display-message -p '#S')
-	if [ "${active_session}" != "${session_name}" ]; then
-		tmux_error=1
-	fi
 }
 
 #Function to kill tmux windows using window name
